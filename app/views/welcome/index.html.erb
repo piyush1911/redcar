@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="span9">
+    <h1> Welcome to your Shopping site </h1>
+    <% if :notice %>
+      <div class="span9">
+          <p id="notice"> <%= notice ? notice : '' %> </p>
+      </div>
+    <% end %>
+    <%= link_to 'Sign In', users_url %>
+    <%= link_to 'Register', new_user_url %>
+  </div>
+</div>
+
+<%= render "sites" %>

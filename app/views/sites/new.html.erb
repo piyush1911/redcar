@@ -1,0 +1,48 @@
+<div class="row">
+  <% if :notice %>
+    <div class="col-lg-1 col-md-1 col-sm-1 text-center">
+        <p id="notice"> <%= notice ? notice : '' %> </p>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-lg-1 col-md-1 col-sm-1 text-left">
+    <h1> New Site </h1>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1 text-center">
+  <%= form_for @site, url: sites_url, method: "POST" do |f| %>
+  <table class="text-left">
+    <tr>
+      <td>
+          <%= f.label :alias, 'Site Alias' %>
+      </td>
+      <td>
+          <%= f.text_field :alias %>
+      </td>
+    </tr> 
+    <tr>
+      <td>
+          <%= f.label :title, 'Title' %> 
+      </td>
+      <td>
+          <%= f.text_field :title %>
+      </td>
+    </tr> 
+    <tr>
+      <td>
+          <%= f.label :description, 'Description' %>
+      </td>
+      <td>
+          <%= f.text_field :description %>
+      </td>
+    </tr> 
+    <tr class="actions text-right">
+      <td colspan=2>
+          <%= submit_tag 'Register'%>
+          <%= link_to 'back', users_url %>
+      </td>
+    </tr>
+  </table>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="span9">
+    <h1> Welcome to your Shopping site </h1>
+  <% if :notice %>
+        <p id="notice"> <%= notice ? notice : '' %> </p>
+  <% end %>
+  </div>
+</div>
+<div class="row">
+  <%= form_for @user, url: "/users/login", method: "POST" do |f| %>
+  <table class="text-left">
+    <tr>
+      <td>
+          <%= f.label :email, 'Email' %>
+      </td>
+      <td>
+          <%= f.text_field :email%>
+      </td>
+    </tr> 
+    <tr>
+      <td>
+          <%= f.label :password, 'Password' %>
+      </td>
+      <td>
+          <%= f.password_field :password%>
+      </td>
+    </tr> 
+    <tr class="actions text-right">
+      <td colspan=2>
+          <%= submit_tag 'Sign In'%>
+          <%= link_to 'Register', new_user_url %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>

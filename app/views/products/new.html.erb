@@ -1,0 +1,59 @@
+<div class="row">
+  <% if :notice %>
+    <div class="col-lg-1 col-md-1 col-sm-1 text-center">
+        <p id="notice"> <%= notice ? notice : '' %> </p>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-lg-1 col-md-1 col-sm-1 text-left">
+    <h1> Add Product  </h1>
+    <i> To <%=@site[:title]%> <br> by <%=@site.user[:name]%>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1 text-center">
+  <%= form_for @product, url: products_url, method: "POST" do |f| %>
+  <%= hidden_field_tag :site_alias, @site[:alias]%>
+  <table class="text-left">
+    <tr>
+      <td>
+          <%= f.label :alias, 'Product Alias' %>
+      </td>
+      <td>
+          <%= f.text_field :alias %>
+      </td>
+    </tr> 
+    <tr>
+      <td>
+          <%= f.label :title, 'Title' %> 
+      </td>
+      <td>
+          <%= f.text_field :title %>
+      </td>
+    </tr> 
+    <tr>
+      <td>
+          <%= f.label :description, 'Description' %>
+      </td>
+      <td>
+          <%= f.text_field :description %>
+      </td>
+    </tr> 
+    <tr>
+      <td>
+          <%= f.label :price, 'price' %>
+      </td>
+      <td>
+          <%= f.text_field :price %>
+      </td>
+    </tr> 
+    
+    <tr class="actions text-right">
+      <td colspan=2>
+          <%= submit_tag 'Register',class:"btn btn-success"%>
+          <%= link_to 'back', url_for(@site),class:"btn btn-danger" %>
+      </td>
+    </tr>
+  </table>
+    <% end %>
+  </div>
+</div>

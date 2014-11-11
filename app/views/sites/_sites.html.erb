@@ -1,0 +1,16 @@
+<div class="row">
+<%@sites.each do |site|%>
+    <div class="span4" style="height:180px;border:1px solid #ddd;margin:5px;">
+        <div class="row" style="margin:5px;height:120px;overflow:none;">
+          <ul style="list-style:none;margin:0px;padding:0px;">
+            <li><h2><%=site.title%></h2>by <i><%=site.user.name%></i></li>
+            <li><i><%=site.description%></i></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="row text-left" style="margin:5px;padding:0px">
+          <%= link_to "Show", url_for(site), class: "btn" %>
+        </div>
+    </div>
+<%end%>
+</div>

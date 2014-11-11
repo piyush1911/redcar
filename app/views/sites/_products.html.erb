@@ -1,0 +1,18 @@
+<div class="row">
+<%@site.products.each do |product|%>
+    <div class="span4" style="height:180px;border:1px solid #ddd;margin:5px;">
+        <div class="row" style="margin:5px;height:120px;overflow:none;">
+          <ul style="list-style:none;margin:0px;padding:0px;">
+            <li><h2><%=product.title%><h2></li>
+            <li><i><%=product.description%></i></li>
+            <li><i><%=product.price%></i></li>
+          </ul>
+        </div>
+        <%if @is_user_site_owner%>
+        <div class="row text-left" style="margin:5px;padding:0px">
+          <%= link_to "Edit", url_for(product), class: "btn" %>
+        </div>
+        <%end%>
+    </div>
+<%end%>
+</div>

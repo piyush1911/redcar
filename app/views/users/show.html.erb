@@ -1,0 +1,17 @@
+
+
+<div class="row">
+  <div class="col-lg-9 col-md-9 col-sm-8 text-left">
+    <h1> Hello, <%=@user[:name]%> </h1>
+    <%= form_for @user, url: "/users/logout", method: "POST" do |f| %>
+    <%= submit_tag 'Logout' %>
+    <%end%>
+    <%= link_to 'Add Site', new_site_url%>
+  </div>
+</div>
+<div class="row">
+  <% if :notice %>
+    <p id="notice"> <%= notice ? notice : '' %> </p>
+  <% end %>
+</div>
+<%= render "sites" %>
